@@ -1,13 +1,16 @@
-:host {
-  width: 100%;
-  @media (min-width: 992px) {
-    .login-form {
-      width: 100%;
-      max-width: 450px;
+.bg-brac{
+  background-color:  white;
+  background-image: url("src/assets/media/misc/bg-3.jpg");
+}
 
-      .mat-form-field {
-        width: 100%;
-      }
-    }
-  }
+
+.font-login{
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.btn-pill{
+  border-radius: 2rem;
+  background-color: #ec018c;
+  border-color: #ec018c;
+  color: white;
 }
