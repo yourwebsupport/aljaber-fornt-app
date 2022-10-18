@@ -1,29 +1,33 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import {Component, OnInit, OnDestroy, ChangeDetectorRef, Input} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription, Observable } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { UserModel } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
+  @Input() logo: string;
+
   // KeenThemes mock, change it to:
   defaultAuth: any = {
-    email: 'admin@demo.com',
-    password: 'demo',
+    username: 'habib3266',
+    password: 'abc123$',
   };
   loginForm: FormGroup;
   hasError: boolean;
   returnUrl: string;
   isLoading$: Observable<boolean>;
 
+
   // private fields
-  private unsubscribe: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
+  private unsubscribe: Subscription[] = [];
+
 
   constructor(
     private fb: FormBuilder,
@@ -38,6 +42,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 
+
+
   ngOnInit(): void {
     this.initForm();
     // get return url from route parameters or default to '/'
@@ -45,18 +51,20 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.route.snapshot.queryParams['returnUrl'.toString()] || '/';
   }
 
+
   // convenience getter for easy access to form fields
   get f() {
     return this.loginForm.controls;
   }
 
+
+
   initForm() {
     this.loginForm = this.fb.group({
-      email: [
-        this.defaultAuth.email,
+      username: [
+        this.defaultAuth.username,
         Validators.compose([
           Validators.required,
-          Validators.email,
           Validators.minLength(3),
           Validators.maxLength(320), // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
         ]),
@@ -72,10 +80,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
+
   submit() {
     this.hasError = false;
     const loginSubscr = this.authService
-      .login(this.f.email.value, this.f.password.value)
+      .login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe((user: UserModel | undefined) => {
         if (user) {
@@ -87,7 +96,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.unsubscribe.push(loginSubscr);
   }
 
+
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }
+
 }
