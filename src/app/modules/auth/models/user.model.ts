@@ -6,13 +6,13 @@ export class UserModel extends AuthModel {
   id: number;
   username: string;
   password: string;
-  fullname: string;
+  fullName: string;
   email: string;
   pic: string;
   roles: number[] = [];
   occupation: string;
   companyName: string;
-  phone: string;
+  mobileNo: string;
   address?: AddressModel;
   socialNetworks?: SocialNetworksModel;
   // personal information
@@ -25,7 +25,7 @@ export class UserModel extends AuthModel {
   communication: {
     email: boolean;
     sms: boolean;
-    phone: boolean;
+    mobileNo: boolean;
   };
   // email settings
   emailSettings?: {
@@ -53,13 +53,13 @@ export class UserModel extends AuthModel {
     this.id = user.id;
     this.username = user.username || '';
     this.password = user.password || '';
-    this.fullname = user.fullname || '';
+    this.fullName = user.fullName || '';
     this.email = user.email || '';
     this.pic = user.pic || './assets/media/avatars/blank.png';
     this.roles = user.roles || [];
     this.occupation = user.occupation || '';
     this.companyName = user.companyName || '';
-    this.phone = user.phone || '';
+    this.mobileNo = user.mobileNo || '';
     this.address = user.address;
     this.socialNetworks = user.socialNetworks;
   }
