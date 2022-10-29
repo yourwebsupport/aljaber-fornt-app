@@ -12,7 +12,7 @@
             completed: currentStep$.value > 1
           }"
         >
-          <h3 class="stepper-title">Account Type</h3>
+          <h3 class="stepper-title">Passenger Basic Info</h3>
         </div>
 
         <div
@@ -22,32 +22,32 @@
             completed: currentStep$.value > 2
           }"
         >
-          <h3 class="stepper-title">Account Info</h3>
+          <h3 class="stepper-title">Passenger Medical Record</h3>
         </div>
+
+<!--        <div-->
+<!--          class="stepper-item"-->
+<!--          [ngClass]="{-->
+<!--            current: currentStep$.value === 3,-->
+<!--            completed: currentStep$.value > 3-->
+<!--          }"-->
+<!--        >-->
+<!--          <h3 class="stepper-title">Business Info</h3>-->
+<!--        </div>-->
+
+<!--        <div-->
+<!--          class="stepper-item"-->
+<!--          [ngClass]="{-->
+<!--            current: currentStep$.value === 4,-->
+<!--            completed: currentStep$.value > 4-->
+<!--          }"-->
+<!--        >-->
+<!--          <h3 class="stepper-title">Billing Details</h3>-->
+<!--        </div>-->
 
         <div
           class="stepper-item"
-          [ngClass]="{
-            current: currentStep$.value === 3,
-            completed: currentStep$.value > 3
-          }"
-        >
-          <h3 class="stepper-title">Business Info</h3>
-        </div>
-
-        <div
-          class="stepper-item"
-          [ngClass]="{
-            current: currentStep$.value === 4,
-            completed: currentStep$.value > 4
-          }"
-        >
-          <h3 class="stepper-title">Billing Details</h3>
-        </div>
-
-        <div
-          class="stepper-item"
-          [ngClass]="{ current: currentStep$.value === 5 }"
+          [ngClass]="{ current: currentStep$.value === 3 }"
         >
           <h3 class="stepper-title">Completed</h3>
         </div>
@@ -75,23 +75,23 @@
             ></app-step2>
           </ng-container>
 
+<!--          <ng-container *ngIf="currentStep$.value === 3">-->
+<!--            <app-step3-->
+<!--              class="w-100"-->
+<!--              [updateParentModel]="updateAccount"-->
+<!--              [defaultValues]="account$.value"-->
+<!--            ></app-step3>-->
+<!--          </ng-container>-->
+
+<!--          <ng-container *ngIf="currentStep$.value === 4">-->
+<!--            <app-step4-->
+<!--              class="w-100"-->
+<!--              [updateParentModel]="updateAccount"-->
+<!--              [defaultValues]="account$.value"-->
+<!--            ></app-step4>-->
+<!--          </ng-container>-->
+
           <ng-container *ngIf="currentStep$.value === 3">
-            <app-step3
-              class="w-100"
-              [updateParentModel]="updateAccount"
-              [defaultValues]="account$.value"
-            ></app-step3>
-          </ng-container>
-
-          <ng-container *ngIf="currentStep$.value === 4">
-            <app-step4
-              class="w-100"
-              [updateParentModel]="updateAccount"
-              [defaultValues]="account$.value"
-            ></app-step4>
-          </ng-container>
-
-          <ng-container *ngIf="currentStep$.value === 5">
             <app-step5 class="w-100"></app-step5>
           </ng-container>
         </div>
