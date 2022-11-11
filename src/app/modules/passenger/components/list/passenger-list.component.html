@@ -1,0 +1,75 @@
+<div class="row gy-5 gx-xl-8">
+<h4>Passenger Information List</h4>
+
+<div class="mat-elevation-z8 demo-table ">
+
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="passengerId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID</mat-header-cell>
+      <mat-cell *matCellDef="let passenger">passenger.passengerId</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="passengerPhoto">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Photo </mat-header-cell>
+      <mat-cell *matCellDef="let passenger"> {{passenger.passengerPhoto}}</mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="registrationCode">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Registration Code</mat-header-cell>
+      <mat-cell *matCellDef="let passenger"> {{passenger.registrationCode}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="passengerName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Passenger Name </mat-header-cell>
+      <mat-cell *matCellDef="let passenger"> {{passenger.passengerName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="passportNo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Passport No </mat-header-cell>
+      <mat-cell *matCellDef="let passenger">{{passenger.passportNo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="visaNo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Visa No </mat-header-cell>
+      <mat-cell *matCellDef="let passenger">{{passenger.visaNo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="registrationDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Registration Date </mat-header-cell>
+      <mat-cell *matCellDef="let passenger">{{passenger.registrationDate}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="medicalExamDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> M.Exam Date </mat-header-cell>
+      <mat-cell *matCellDef="let passenger">{{passenger.medicalExamDate}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="medicalExamType">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> M.Exam Type </mat-header-cell>
+      <mat-cell *matCellDef="let passenger">{{passenger.medicalExamType}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="medicalResultStatusName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> M.Result Status </mat-header-cell>
+      <mat-cell *matCellDef="let passenger">{{passenger.medicalResultStatusName}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="authorizationStatusName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+      <mat-cell *matCellDef="let passenger">{{passenger.authorizationStatusName}} </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let passenger; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+</div>
+<mat-paginator
+  [pageSizeOptions]="[10, 20, 30]"
+  showFirstLastButtons>
+</mat-paginator>
+</div>
