@@ -5,8 +5,9 @@ import { MatSort } from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { PageEvent } from '@angular/material/paginator';
-import {PassengerModel} from "../../models/passenger.model";
 import {PassengerService} from "../../services/passenger.service";
+
+
 
 @Component({
   selector: 'app-passenger-list',
@@ -16,11 +17,12 @@ import {PassengerService} from "../../services/passenger.service";
 export class PassengerListComponent implements AfterViewInit, OnInit {
 
   pageEvent: PageEvent;
-
-  displayedColumns = ['passengerId', 'passengerPhoto', 'registrationCode', 'passengerName', 'passportNo', 'visaNo', 'registrationDate', 'medicalExamDate',
+  displayedColumns : string[] = ['registrationCode', 'passengerName', 'passportNo', 'visaNo', 'registrationDate', 'medicalExamDate',
                       'medicalExamType', 'medicalResultStatusName', 'authorizationStatusName'];
 
   dataSource: MatTableDataSource<any>;
+  resultsLength = 0;
+  isLoadingResults = true;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -30,6 +32,7 @@ export class PassengerListComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.passengerService.getPassengerList().subscribe((data)=>{
+      this.isLoadingResults = false;
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
@@ -39,4 +42,5 @@ export class PassengerListComponent implements AfterViewInit, OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+
 }

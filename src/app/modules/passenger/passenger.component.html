@@ -1,1 +1,444 @@
-<p>passenger works!</p>
+<div class="row gy-5 gx-xl-8">
+  <mat-card><h3>Create Passenger Information</h3></mat-card>
+  <mat-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Passenger basic information</ng-template>
+        <div class="row">
+          <div class="column">
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Name</mat-label>
+                <input matInput placeholder="Example Md Ahsan Habib" required>
+                <!--            <mat-icon matSuffix>accessibility</mat-icon>-->
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Date of Birth</mat-label>
+                <input type="date" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Gender</mat-label>
+                <mat-select required>
+                  <mat-option>-None-</mat-option>
+                  <mat-option value="one">Male</mat-option>
+                  <mat-option value="two">Female</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Marital Status</mat-label>
+                <mat-select required>
+                  <mat-option>-None-</mat-option>
+                  <mat-option value="one">Married</mat-option>
+                  <mat-option value="two">Un-Married</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Blood Group</mat-label>
+                <mat-select required>
+                  <mat-option>-None-</mat-option>
+                  <mat-option value="one">A+</mat-option>
+                  <mat-option value="two">AB+</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+
+          </div>
+          <div class="column">
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Country</mat-label>
+                <mat-select required>
+                  <mat-option>-None-</mat-option>
+                  <mat-option value="one">Bangladesh</mat-option>
+                  <mat-option value="two">India</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Mobile Number</mat-label>
+                <input matInput placeholder="Example 01775573206" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Email Address</mat-label>
+                <input matInput placeholder="Example bdahsan@gmail.com">
+              </mat-form-field>
+            </p>
+
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger National ID</mat-label>
+                <input matInput placeholder="Example NID">
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Profession</mat-label>
+                <input matInput placeholder="Example Agriculture">
+              </mat-form-field>
+            </p>
+
+          </div>
+
+          <div class="column">
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Father Name</mat-label>
+                <input matInput placeholder="Example Md Ahsan Habib" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Mather Name</mat-label>
+                <input matInput placeholder="Example Md Ahsan Habib" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Executive Name</mat-label>
+                <mat-select required>
+                  <mat-option>-None-</mat-option>
+                  <mat-option value="one">Md Ahsan Habib</mat-option>
+                  <mat-option value="two">Ali Hossain</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Agency Name</mat-label>
+                <mat-select required>
+                  <mat-option>-None-</mat-option>
+                  <mat-option value="one">GBF</mat-option>
+                  <mat-option value="two">Bangladesh Govt</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Registration Date</mat-label>
+                <input type="date" matInput required>
+              </mat-form-field>
+            </p>
+
+          </div>
+
+          <div class="column">
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Registration Code</mat-label>
+                <input matInput placeholder="Example 2022-AJ-1245" required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-label>Passenger Photo</mat-label>
+              <input type="file" (change)="onImageUpload($event)">
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Present Address</mat-label>
+                <textarea matInput placeholder="Example Dhaka"></textarea>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Permanent Address</mat-label>
+                <textarea matInput placeholder="Example Bogura"></textarea>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger if any comments</mat-label>
+                <textarea matInput placeholder="Example Bogura"></textarea>
+              </mat-form-field>
+            </p>
+
+          </div>
+
+        </div>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Passenger Passport and Visa information">
+      <form [formGroup]="secondFormGroup">
+        <div class="row">
+          <div class="column">
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Passport Number</mat-label>
+                <input matInput placeholder="Example Md Ahsan Habib" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Passport Issue Date</mat-label>
+                <input type="date" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Passport Expiry Date</mat-label>
+                <input type="date" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-label>Passenger Passport Photo</mat-label>
+              <br/>
+              <input type="file" (change)="onImageUpload($event)">
+            </p>
+          </div>
+          <div class="column">
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Visa Number</mat-label>
+                <input matInput placeholder="Example Md Ahsan Habib" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Visa Issue Date</mat-label>
+                <input type="date" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Visa Expiry Date</mat-label>
+                <input type="date" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-label>Passenger Visa Photo</mat-label>
+              <br/>
+              <input type="file" (change)="onImageUpload($event)">
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup" label="Passenger medical information">
+      <form [formGroup]="thirdFormGroup">
+        <div class="row">
+          <div class="medical"> -- first column --
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Medical Exam Date</mat-label>
+                <input type="date" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Medical Exam Type</mat-label>
+                <mat-select required>
+                  <mat-option>-None-</mat-option>
+                  <mat-option value="one">Regular</mat-option>
+                  <mat-option value="two">BGFRM</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Blood Pressure</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Pulse Rate</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Height</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="medical"> -- 2nd column --
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Weight</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Pregnancy </mat-label>
+                <mat-select required>
+                  <mat-option>-None-</mat-option>
+                  <mat-option value="one">Regular</mat-option>
+                  <mat-option value="two">BGFRM</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Hemoglobin</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Bilirubin</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger SGPT</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="medical">-- 3rd column --
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger SGOT</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Erythrocyte Sedimentation Rate (ESR)</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Total Count(TC)</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Neutrophils</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Lymphocytes</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="medical">-- 4th column --
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Basophils</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Eosinophils</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Sugar Random</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger UREA</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger ENT</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="medical">-- 5th column --
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger SKIN</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Albumin</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger electrocardiogram (ECG)</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Creatinine</mat-label>
+                <input type="number" matInput required>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Passenger Medical Results</mat-label>
+                <mat-select required>
+                  <mat-option>-None-</mat-option>
+                  <mat-option value="one">FIT</mat-option>
+                  <mat-option value="two">UNFIT</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Review and Confirm</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>

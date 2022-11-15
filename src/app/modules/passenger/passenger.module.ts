@@ -6,6 +6,7 @@ import { PassengerRoutingModule } from './passenger-routing.module';
 import {PassengerComponent} from "./passenger.component";
 import {PassengerListComponent} from "./components/list/passenger-list.component";
 import {MaterialExampleModule} from "../../../material.module";
+import { InlineSVGModule } from 'ng-inline-svg-2';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {MaterialExampleModule} from "../../../material.module";
     ReactiveFormsModule,
     HttpClientModule,
     MaterialExampleModule,
+    InlineSVGModule,
   ],
 })
 export class PassengerModule{}
